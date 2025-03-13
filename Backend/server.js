@@ -17,6 +17,9 @@ app.use('/api/auth', authRoutes);
 const userRoutes = require('./routes/userRoutes');
 app.use('/api/user', userRoutes);
 
+const quizRoutes = require('./routes/quizRoutes');
+app.use('/api/quiz', quizRoutes);
+
 const port = process.env.PORT;
 app.listen(port, () => {
     console.log(`Server is running on ${port}`);
