@@ -24,10 +24,15 @@ const userSchema = mongoose.Schema({
     }
 });
 
-userSchema.pre('save', function(next) {
-    if(!this.isModified('password')) return next();
-    this.password = bcrypt.hashSync(this.password, 10);
+userSchema.pre('save', async function (next) {
+    if (!this.isModified('password')) return next(); 
+    try {
+        const salt = await bcrypt.genSalt(10); // Generate salt
+        this.password = await bcrypt.hash(this.password, salt); // Hash password
+        next();
+    } catch (error) {
+        next(error);
+    }
 });
-
 const User = mongoose.model('User', userSchema);
 module.exports = User;
