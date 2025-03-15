@@ -6,7 +6,7 @@ const quizController = require('../controller/QuizController');
 // Routes
 router.post('/createQuiz',authMiddleware, adminMiddleware, quizController.createQuiz);
 router.get('/getAllQuiz',authMiddleware, quizController.getAllQuiz);
-router.get('/getQuizById/:id', quizController.getQuizById);
+router.get('/getQuizById/:id',authMiddleware, quizController.getQuizById);
 router.post('/attemptQuiz',authMiddleware, quizController.attemptQuiz);
 
 module.exports = router
