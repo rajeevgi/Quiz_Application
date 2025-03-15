@@ -36,13 +36,23 @@ exports.getQuizById = async (req, res) => {
 exports.attemptQuiz = async (req, res) => {
   try {
     const { quizId, answers } = req.body;
+
     const quiz = await Quiz.findById(quizId);
     if (!quiz) {
       return res.status(404).json({ message: "Quiz not found!" });
     }
+
+    // Check if user has answered all questions
+    if (answers.length !== quiz.questions.length) {
+      return res
+        .status(400)
+        .json({ message: "Please provide answers for all questions." });
+    }
+
     let score = 0;
     quiz.questions.forEach((q, index) => {
-      if (answers[index] === q.correctAnswer) score++;
+      if (answers[index] === q.correctAnswer) 
+        score++;
     });
 
     await User.findByIdAndUpdate(req.user.id, {
