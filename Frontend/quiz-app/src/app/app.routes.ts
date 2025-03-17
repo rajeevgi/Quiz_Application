@@ -5,37 +5,37 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { QuizComponent } from './pages/quiz/quiz.component';
 
 export const routes: Routes = [
-    // Default route
-    {
-        path:'',
-        redirectTo:'app-login',
-        pathMatch: 'full'
-    },
+  // Default route
+  {
+    path: '',
+    redirectTo: 'app-login',
+    pathMatch: 'full',
+  },
 
-    {
-        path:'app-login',
-        component:LoginComponent
-    },
+  {
+    path: 'app-login',
+    component: LoginComponent,
+  },
 
-    {
-        path:'app-home',
-        component:HomeComponent,
-        children : [
-            {
-                path:'app-dashboard',
-                component:DashboardComponent
-            },
+  {
+    path: 'app-home',
+    component: HomeComponent,
+    children: [
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+      },
 
-            {
-                path:'app-quiz',
-                component:QuizComponent
-            }
-        ]
-    },
+      {
+        path: 'quiz',
+        component: QuizComponent,
+      },
+    ],
+  },
 
-    {
-        path:'***',
-        redirectTo:'app-login',
-        pathMatch:'full'
-    }
+  {
+    path: '**',
+    redirectTo: 'app-login',
+    pathMatch: 'full',
+  },
 ];
