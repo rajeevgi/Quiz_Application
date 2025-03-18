@@ -1,1 +1,30 @@
-<p>dashboard works!</p>
+<h3 class="text-center pt-2">User Dashboard</h3>
+<div class="container pt-3">
+    <div class="col-12">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr class="text-center">
+                    <!-- <th>Id</th> -->
+                    <th>Name</th>
+                    <th>Email</th>
+                    <!-- <th>Password</th> -->
+                     <th>Role</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userList" class="text-center">
+                    <!-- <td>{{ user.id }}</td> -->
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                    <!-- <td>{{ user.password }}</td> -->
+                     <td>{{ user.role }}</td>
+                    <td>
+                        <button type="button" class="btn btn-success mx-2" (click)="onUpdateUser(user.id)">Update</button>
+                        <button type="button" class="btn btn-danger " (click)="onDeleteUser(user.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

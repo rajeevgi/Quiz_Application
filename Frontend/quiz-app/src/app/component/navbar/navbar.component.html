@@ -8,10 +8,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-md-auto gap-2">
 
-        <li class="nav-item rounded">
+        <li class="nav-item rounded" *ngIf="user.role === 'Admin'">
           <a class="nav-link" routerLink="dashboard"><i class="bi bi-people-fill me-2"></i>Dashboard</a>
         </li>
-        <li class="nav-item rounded">
+        <li class="nav-item rounded" *ngIf="user.role === 'Admin' || user.role === 'User'">
           <a class="nav-link" routerLink="quiz"><i class="bi bi-telephone-fill me-2"></i>Quiz</a>
         </li>
 
