@@ -49,7 +49,10 @@
                         <option [ngValue]="'User'">User</option>
                     </select>
                 </div>                
-                <button type="submit" class="btn" (click)="onRegister()">Register</button>
+                <button type="submit" class="btn" (click)="onRegister()" [disabled]="loading">
+                    {{ loading ? 'Registering...' : 'Register' }}
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm ms-2" role="status"></span>
+                </button>
                 <p>or register with social platforms</p>
                 <div class="social-icons">
                     <a href="#"><i class="fa-brands fa-google"></i></a>

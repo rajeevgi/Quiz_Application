@@ -27,10 +27,36 @@ export class ApiService {
   // Admin Apis
   getAllUsers(): Observable<any> {
     const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`,
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+    return this.http.get(`${this.apiUrl}/user/getAllUsers`, {
+      headers,
+      withCredentials: true,
     });
-    return this.http.get(`${this.apiUrl}/user/getAllUsers`, {headers,
+  }
+
+  getUserById(id: string): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+    return this.http.get(`${this.apiUrl}/user/getUserById/${id}`, {
+      headers,
+      withCredentials: true,
+    });
+  }
+
+  deleteUserById(id: string): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+    return this.http.delete(`${this.apiUrl}/user/deleteUserById/${id}`, {
+      headers,
+      withCredentials: true,
+    });
+  }
+
+  updateUserById(id: string, data : any): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+    return this.http.put(`${this.apiUrl}/user/updateUserById/${id}`, data, {
+      headers,
       withCredentials: true,
     });
   }

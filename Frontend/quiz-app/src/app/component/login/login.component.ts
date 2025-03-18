@@ -3,10 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { User } from '../../model/user';
 import { ApiService } from '../../services/api.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  imports: [RouterModule, FormsModule],
+  imports: [RouterModule, FormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -16,6 +17,8 @@ export class LoginComponent {
   constructor(private apiService: ApiService) {}
 
   router = inject(Router);
+
+  loading : boolean = false;
 
   onLogin() {
     this.apiService.login(this.user).subscribe((res: any) => {
@@ -34,10 +37,13 @@ export class LoginComponent {
   }
 
   onRegister() {
+    this.loading = true;
     this.apiService.register(this.user).subscribe((res: any) => {
       alert("Registration successful!");
       this.user = res;
+      this.toggleLogin();
       this.router.navigateByUrl('/app-login');
+      this.loading = false;
     });
   }
 

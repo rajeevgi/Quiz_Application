@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+
+<div class="row p-3 bg-light text-dark text-center rounded">
+    <h2>Update User Information</h2>
+</div>
+
+<div class="container w-50 p-3">
+    <form class="p-4 rounded border border-dark shadow" (ngSubmit)="onSubmit()">
+        <div class="mb-3 mt-3">
+            <label for="name" class="form-label">Enter Name:</label>
+            <input type="text" class="form-control rounded" [(ngModel)]="user.name" id="name"
+                placeholder="Enter new name" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Enter Email:</label>
+            <input type="email" class="form-control rounded" [(ngModel)]="user.email" id="email"
+                placeholder="Enter new email" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Enter Password:</label>
+            <input type="password" class="form-control rounded" [(ngModel)]="user.password" id="password"
+                placeholder="Enter new password" name="password">
+        </div>
+        <button type="submit" class="btn btn-success rounded">Update User</button>
+    </form>
+</div>
+
+<app-footer></app-footer>

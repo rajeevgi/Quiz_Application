@@ -2,5 +2,59 @@
 
 <router-outlet></router-outlet>
 
+<!-- Home Page Content -->
+<div class="container-fluid bg-light py-5">
+    <div class="row align-items-center">
+      <!-- Left Content -->
+      <div class="col-md-6 text-center text-md-start px-5">
+        <h1 class="display-4 fw-bold mb-4">Welcome to QuizMaster</h1>
+        <p class="lead mb-4">Sharpen your knowledge, compete with friends, and challenge yourself with a wide range of quizzes. Ready to get started?</p>
+        <div>
+          <a routerLink="/app-quiz" class="btn btn-primary btn-lg me-3">Take a Quiz</a>
+          <a routerLink="/app-dashboard" *ngIf="user.role === 'Admin'" class="btn btn-outline-dark btn-lg">Admin Dashboard</a>
+        </div>
+      </div>
+  
+      <!-- Right Image -->
+      <div class="col-md-6 text-center">
+        <img src="https://via.placeholder.com/500x350" alt="Quiz Illustration" class="img-fluid rounded shadow">
+      </div>
+    </div>
+  </div>
+  
+  <!-- Features Section -->
+  <div class="container py-5">
+    <h2 class="text-center mb-5 fw-bold">Why Choose QuizMaster?</h2>
+    <div class="row g-4 text-center">
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body">
+            <i class="bi bi-lightning-charge-fill fs-1 text-primary mb-3"></i>
+            <h5 class="card-title fw-bold">Fast & Fun</h5>
+            <p class="card-text">Quick quizzes designed to beinformative.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body">
+            <i class="bi bi-graph-up-arrow fs-1 text-success mb-3"></i>
+            <h5 class="card-title fw-bold">Track Progress</h5>
+            <p class="card-text">View your quiz history and see how you improve over time.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body">
+            <i class="bi bi-award-fill fs-1 text-warning mb-3"></i>
+            <h5 class="card-title fw-bold">Compete & Earn</h5>
+            <p class="card-text">Compete with others and earn badges for your achievements.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 
 <app-footer></app-footer>
