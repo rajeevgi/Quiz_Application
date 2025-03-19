@@ -1,5 +1,58 @@
 <app-navbar></app-navbar>
 
-<p>quiz works!</p>
+<div class="parent">
+    <div class="container-fluid">
+        <div class="row pt-3">
+            <div class="col-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://media.istockphoto.com/id/484654121/photo/program-code.jpg?s=1024x1024&w=is&k=20&c=PUT4QgAD1bcKZMLHNarEPyBhkmJabk4TR1dMNvTiR9k="
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ quiz.title }}</h5>
+                        <p class="card-text">"The mother of modern programming! C powers everything from operating
+                            systems to embedded devices. Test your skills and go back to where it all began!"</p>
+                        <a [routerLink]="['/app-quiz-attempt', quiz.id]" class="btn btn-primary">Click to start quiz</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://media.istockphoto.com/id/1149101430/photo/c-text.jpg?s=1024x1024&w=is&k=20&c=buz-FDSmGa3S9NOguQJPiBdHn3j_DJmu8UW-nQM2f0g="
+                        class="card-img-top" style="height: 13.5rem;" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">C++ Programming</h5>
+                        <p class="card-text">"C++, the language of high-performance applications and game engines! Ready
+                            to level up your coding with the power of object-oriented programming?"</p>
+                        <a routerLink="/app-quiz-attempt" class="btn btn-primary">Click to start quiz</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://media.istockphoto.com/id/1431876307/photo/businessman-clicks-java-programming-language-application-concept-on-virtual-screen.jpg?s=1024x1024&w=is&k=20&c=ISPMEkopOc42ksBIfLD11XzPSK5oB5g5pxUPkTvxirQ="
+                        class="card-img-top" style="height: 15rem;" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Java Programming</h5>
+                        <p class="card-text">"Master the power of Java — the language behind millions of apps, games,
+                            and websites. Ready to unlock your coding potential?"</p>
+                        <a routerLink="/app-quiz-attempt" class="btn btn-primary">Click to start quiz</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://media.istockphoto.com/id/1347542592/photo/node-js-inscription-against-laptop-and-code-background.jpg?s=1024x1024&w=is&k=20&c=rVi7dhwjvJIdwEpJUjgZ_8M1_NC7rwJHsJ1WZnee4_A="
+                        class="card-img-top" style="height: 13.5rem;" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Nodejs Programming</h5>
+                        <p class="card-text">"Run JavaScript beyond the browser! Node.js builds fast, scalable servers
+                            and real-time apps. Ready to take on the backend revolution?"</p>
+                        <a routerLink="/app-quiz-attempt" class="btn btn-primary">Click to start quiz</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <app-footer></app-footer>

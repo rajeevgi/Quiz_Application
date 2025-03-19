@@ -60,4 +60,18 @@ export class ApiService {
       withCredentials: true,
     });
   }
+
+  // Quiz Apis
+  getQuizById(id: string): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+    return this.http.get(`${this.apiUrl}/quiz/getQuizById/${id}`, { headers, withCredentials: true });
+  }
+  
+  attemptQuiz(data : any) : Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ Authorization : `Bearer ${token}` });
+    return this.http.post(`${this.apiUrl}/quiz/attemptQuiz`, data, { headers, withCredentials : true});
+  }
+
 }

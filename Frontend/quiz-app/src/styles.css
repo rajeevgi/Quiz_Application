@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.parent {
+    background-color: #b8c6cd;
+    background-image: linear-gradient(315deg, #b8c6cd, 0%, #f5f7fa, 100%);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+  }

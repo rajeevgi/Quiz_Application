@@ -1,0 +1,119 @@
+<app-navbar></app-navbar>
+
+<!-- <div class="parent">
+    <div class="quiz-container" id="quiz">
+        <div class="quiz-header">
+            <h2 id="question">Question is loading...</h2>
+            <ul>
+                <li>
+                    <input type="radio" name="answer" id="a" class="answer" />
+                    <label for="a" id="a_text">Answer...</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="b" class="answer" />
+                    <label for="b" id="b_text">Answer...</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="c" class="answer" />
+                    <label for="c" id="c_text">Answer...</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="d" class="answer" />
+                    <label for="d" id="d_text">Answer...</label>
+                </li>
+            </ul>
+        </div>
+        <button id="submit">Submit</button>
+    </div>
+</div> -->
+
+
+<!-- <script>
+    const quiz = document.getElementById("quiz")
+    const answerElements = document.querySelectorAll(".answer")
+    const questionElement = document.getElementById("question")
+
+    /* const com os elementos labels */
+    const a_text = document.getElementById("a_text")
+    const b_text = document.getElementById("b_text")
+    const c_text = document.getElementById("c_text")
+    const d_text = document.getElementById("d_text")
+
+    const submitButton = document.getElementById("submit")
+
+    let currentQuiz = 0
+    let score = 0
+
+    const deselectAnswer = () => {
+        answerElements.forEach((answer) => {
+            answer.checked = false
+        })
+    }
+
+    const getSelected = () => {
+        let answer
+        answerElements.forEach((answerElement) => {
+            if (answerElement.checked) {
+                answer = answerElement.id
+            }
+            return answer
+        })
+    }
+
+    const loadQuiz = () => {
+        deselectAnswer()
+        const currentQuizData = quizData[currentQuiz]
+
+        questionElement.innerText = quizData[currentQuiz]
+        questionElement.innerText = currentQuizData.question
+        a_text.innerText = currentQuizData.a
+        b_text.innerText = currentQuizData.b
+        c_text.innerText = currentQuizData.c
+        d_text.innerText = currentQuizData.d
+    }
+    loadQuiz()
+
+    submitButton.addEventListener('click', () => {
+        const answer = getSelected()
+        if (answer) {
+            if (answer === quizData[currentQuiz].correct) {
+                score++
+                currentQuiz++
+            }
+            if (currentQuiz < quizData.length) {
+                loadQuiz()
+            }
+            else {
+                quiz.innerHTML = `
+        <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+        <button onclick="history.go(0)">Play Again</button>
+       `
+                //location.reload()
+            }
+        }
+    })
+</script> -->
+
+<div *ngIf="quiz">
+    <h2>{{ quiz.quizTitle }}</h2>
+  
+    <div *ngFor="let q of quiz.questions">
+      <h4>{{ q.questionText }}</h4>
+      <ul>
+        <li *ngFor="let opt of q.options">
+          <label>
+            <input type="radio"
+                   name="{{ q._id }}"
+                   [value]="opt"
+                   [checked]="selectedAnswers[q._id] === opt"
+                   (change)="selectAnswer(q._id, opt)">
+            {{ opt }}
+          </label>
+        </li>
+      </ul>
+    </div>
+  
+    <button (click)="submitQuiz()">Submit Quiz</button>
+  </div>
+  
+<app-footer></app-footer>
